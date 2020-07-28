@@ -9,7 +9,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 public class MainActivity extends AppCompatActivity {
-    Button goToTextWatcherFragment, goToRecyclerFragment;
+    private Button goToTextWatcherFragment, goToRecyclerFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

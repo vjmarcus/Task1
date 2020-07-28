@@ -46,7 +46,7 @@ public class RecyclerFragment extends Fragment {
 
     private void generateTestValuesInPeopleList() {
         personList = new ArrayList<>();
-        for (int i = 1; i < 11; i++) {
+        for (int i = 0; i < 10; i++) {
             personList.add(new Person("FirstName" + i, "LastName" + i));
         }
     }
