@@ -16,6 +16,8 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.example.task1.model.DefaultFragment;
+import com.example.task1.ui.RecyclerFragment;
+import com.example.task1.ui.TextWatcherFragment;
 import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity implements

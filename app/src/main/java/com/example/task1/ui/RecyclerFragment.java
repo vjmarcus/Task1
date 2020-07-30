@@ -1,4 +1,4 @@
-package com.example.task1;
+package com.example.task1.ui;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.task1.R;
 import com.example.task1.adapter.Adapter;
 import com.example.task1.model.Person;
 

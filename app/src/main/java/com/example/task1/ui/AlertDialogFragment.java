@@ -1,4 +1,4 @@
-package com.example.task1;
+package com.example.task1.ui;
 
 import android.app.AlertDialog;
 import android.app.Dialog;

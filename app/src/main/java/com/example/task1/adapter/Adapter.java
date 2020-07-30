@@ -13,7 +13,7 @@ import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.task1.AlertDialogFragment;
+import com.example.task1.ui.AlertDialogFragment;
 import com.example.task1.R;
 import com.example.task1.model.Person;
 

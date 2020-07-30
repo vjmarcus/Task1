@@ -1,4 +1,4 @@
-package com.example.task1;
+package com.example.task1.ui;
 
 import android.os.Bundle;
 import android.text.Editable;
@@ -12,6 +12,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
+
+import com.example.task1.R;
 
 public class TextWatcherFragment extends Fragment {
 
