@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity implements
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(getLayoutResId());
 
         initButtons();
         initDrawer();
@@ -50,6 +50,10 @@ public class MainActivity extends AppCompatActivity implements
                 replaceFragment(new RecyclerFragment());
             }
         });
+    }
+
+    protected int getLayoutResId(){
+        return R.layout.activity_main;
     }
 
     private void loadDefaultFragment() {
