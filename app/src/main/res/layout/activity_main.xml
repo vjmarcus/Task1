@@ -18,7 +18,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
-        <FrameLayout
+        <androidx.fragment.app.FragmentContainerView
             android:id="@+id/container"
             android:layout_width="0dp"
             android:layout_height="0dp"
@@ -26,8 +26,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/buttonGoToTextWatcherFragment">
-        </FrameLayout>
+            app:layout_constraintTop_toBottomOf="@+id/buttonGoToRecyclerFragment" />
 
         <TextView
             android:id="@+id/hello"
