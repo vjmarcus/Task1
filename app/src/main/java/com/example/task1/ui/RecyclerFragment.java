@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -17,7 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class RecyclerFragment extends Fragment {
+public class RecyclerFragment extends Fragment implements View.OnClickListener {
 
     private RecyclerView peopleRecyclerView;
     private RecyclerView.Adapter peopleAdapter;
@@ -28,23 +29,19 @@ public class RecyclerFragment extends Fragment {
     }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-    }
-
-    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View root = inflater.inflate(R.layout.fragment_recycler, container, false);
         generateTestValuesInPeopleList();
-        peopleRecyclerView(root);
+        initPeopleRecyclerView(root);
         return root;
     }
 
-    private void peopleRecyclerView (View root){
+    private void initPeopleRecyclerView(View root){
         peopleRecyclerView = root.findViewById(R.id.recycler);
         peopleAdapter = new personAdapter(personList, getContext());
+
         peopleRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         peopleRecyclerView.setAdapter(peopleAdapter);
     }
@@ -55,5 +52,10 @@ public class RecyclerFragment extends Fragment {
             personList.add(new Person(getString(R.string.firstNameTest)
                     + i, getString(R.string.lastNameTest) + i));
         }
+    }
+
+    @Override
+    public void onClick(View view) {
+        Toast.makeText(getContext(), "HELLO", Toast.LENGTH_SHORT).show();
     }
 }
