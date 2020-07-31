@@ -8,4 +8,20 @@
     <string name="show_toast">Show toast!</string>
     <string name="open">open</string>
     <string name="close">close</string>
+    <string name="space">\u0020</string>
+    <string name="left_bracket">(</string>
+    <string name="right_bracket">)</string>
+    <string name="title">Title</string>
+    <string name="OK">ОК</string>
+    <string name="zero">нулевой</string>
+    <string name="first">первый</string>
+    <string name="second">второй</string>
+    <string name="third">третий</string>
+    <string name="fourth">четвертый</string>
+    <string name="fifth">пятый</string>
+    <string name="sixth">шестой</string>
+    <string name="seventh">седьмой</string>
+    <string name="eighth">восьмой</string>
+    <string name="ninth">девятый</string>
+    <string name="not_define">не определено</string>
 </resources>

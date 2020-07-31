@@ -9,6 +9,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
 
+import com.example.task1.R;
+
 public class AlertDialogFragment extends DialogFragment {
 
     private int position;
@@ -21,9 +23,11 @@ public class AlertDialogFragment extends DialogFragment {
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        String textValueOfPosition = getTextValueOfPosition(position);
-        builder.setMessage(position + " " + "(" + textValueOfPosition + ")").setTitle("Title")
-                .setPositiveButton("ОК", new DialogInterface.OnClickListener() {
+        String textValueOfPosition = getTextValueOfPosition(position);;
+        builder.setMessage(getString(R.string.left_bracket) + position
+                + getString(R.string.right_bracket) + getString(R.string.space)
+                + textValueOfPosition ).setTitle(R.string.title)
+                .setPositiveButton(R.string.OK, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         // Close window
                         dialog.cancel();
@@ -33,40 +37,40 @@ public class AlertDialogFragment extends DialogFragment {
     }
 
     private String getTextValueOfPosition(int position) {
-        String text = null;
+        String text;
         switch (position) {
             case 0:
-                text = "нулевой";
+                text = getString(R.string.zero);
                 break;
             case 1:
-                text = "первый";
+                text = getString(R.string.first);
                 break;
             case 2:
-                text = "второй";
+                text = getString(R.string.second);
                 break;
             case 3:
-                text = "третий";
+                text = getString(R.string.third);
                 break;
             case 4:
-                text = "четвертый";
+                text = getString(R.string.fourth);
                 break;
             case 5:
-                text = "пятый";
+                text = getString(R.string.fifth);
                 break;
             case 6:
-                text = "шестой";
+                text = getString(R.string.sixth);
                 break;
             case 7:
-                text = "седьмой";
+                text = getString(R.string.seventh);
                 break;
             case 8:
-                text = "восьмой";
+                text = getString(R.string.eighth);
                 break;
             case 9:
-                text = "девятый";
+                text = getString(R.string.ninth);
                 break;
             default:
-                text = "не определено";
+                text = getString(R.string.not_define);
                 break;
         }
         return text;

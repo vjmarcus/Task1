@@ -15,7 +15,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import com.example.task1.model.DefaultFragment;
+import com.example.task1.ui.DefaultFragment;
 import com.example.task1.ui.RecyclerFragment;
 import com.example.task1.ui.TextWatcherFragment;
 import com.google.android.material.navigation.NavigationView;
@@ -88,7 +88,6 @@ public class MainActivity extends AppCompatActivity implements
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        drawerLayout.closeDrawer(GravityCompat.START);
         switch (item.getItemId()){
             case R.id.item1:
                 replaceFragment(new DefaultFragment());
@@ -100,6 +99,7 @@ public class MainActivity extends AppCompatActivity implements
                 replaceFragment(new RecyclerFragment());
                 break;
         }
+        drawerLayout.closeDrawer(GravityCompat.START);
         return true;
     }
 }

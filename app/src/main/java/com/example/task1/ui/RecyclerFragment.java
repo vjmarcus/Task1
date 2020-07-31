@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.task1.R;
-import com.example.task1.adapter.Adapter;
+import com.example.task1.adapter.personAdapter;
 import com.example.task1.model.Person;
 
 import java.util.ArrayList;
@@ -19,7 +19,7 @@ import java.util.List;
 
 public class RecyclerFragment extends Fragment {
 
-    private RecyclerView recyclerView;
+    private RecyclerView peopleRecyclerView;
     private RecyclerView.Adapter peopleAdapter;
     private List<Person> personList;
 
@@ -38,11 +38,15 @@ public class RecyclerFragment extends Fragment {
         // Inflate the layout for this fragment
         View root = inflater.inflate(R.layout.fragment_recycler, container, false);
         generateTestValuesInPeopleList();
-        recyclerView = root.findViewById(R.id.recycler);
-        peopleAdapter = new Adapter(personList, getContext());
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        recyclerView.setAdapter(peopleAdapter);
+        peopleRecyclerView(root);
         return root;
+    }
+
+    private void peopleRecyclerView (View root){
+        peopleRecyclerView = root.findViewById(R.id.recycler);
+        peopleAdapter = new personAdapter(personList, getContext());
+        peopleRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        peopleRecyclerView.setAdapter(peopleAdapter);
     }
 
     private void generateTestValuesInPeopleList() {

@@ -1,4 +1,4 @@
-package com.example.task1.model;
+package com.example.task1.ui;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -8,7 +8,6 @@ import android.view.ViewGroup;
 import androidx.fragment.app.Fragment;
 
 import com.example.task1.R;
-
 
 public class DefaultFragment extends Fragment {
 
@@ -24,8 +23,6 @@ public class DefaultFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        View root = inflater.inflate(R.layout.fragment_default, container, false);
-        return root;
+        return inflater.inflate(R.layout.fragment_default, container, false);
     }
 }
