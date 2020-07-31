@@ -28,4 +28,7 @@
     <string name="lastNameTest">LastName</string>
     <string name="you_enter">\"Вы ввели: \"</string>
     <string name="field_is_empty">field is empty</string>
+    <string name="to_recycler">To Recycler</string>
+    <string name="drawer_header">Drawer Header</string>
+    <string name="add_your_text_here">Add your text here...</string>
 </resources>
