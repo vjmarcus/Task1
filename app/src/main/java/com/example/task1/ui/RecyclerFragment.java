@@ -41,7 +41,6 @@ public class RecyclerFragment extends Fragment implements View.OnClickListener {
     private void initPeopleRecyclerView(View root){
         peopleRecyclerView = root.findViewById(R.id.recycler);
         peopleAdapter = new personAdapter(personList, getContext());
-
         peopleRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         peopleRecyclerView.setAdapter(peopleAdapter);
     }

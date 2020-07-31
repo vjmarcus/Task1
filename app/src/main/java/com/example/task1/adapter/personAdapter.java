@@ -54,7 +54,6 @@ public class personAdapter extends RecyclerView.Adapter<personAdapter.ViewHolder
         });
     }
 
-
     @Override
     public int getItemCount() {
         return personList.size();
