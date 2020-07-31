@@ -1,7 +1,6 @@
 package com.example.task1.adapter;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,12 +8,10 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
-import androidx.fragment.app.FragmentActivity;
-import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.task1.ui.AlertDialogFragment;
 import com.example.task1.R;
+import com.example.task1.RecyclerViewClickListener;
 import com.example.task1.model.Person;
 
 import java.util.List;
@@ -25,9 +22,11 @@ public class personAdapter extends RecyclerView.Adapter<personAdapter.ViewHolder
     private List<Person> personList;
     private Context context;
 
-    public personAdapter(List<Person> personList, Context context) {
+    private RecyclerViewClickListener recyclerViewClickListener;
+
+    public personAdapter(List<Person> personList, RecyclerViewClickListener recyclerViewClickListener) {
         this.personList = personList;
-        this.context = context;
+        this.recyclerViewClickListener = recyclerViewClickListener;
     }
 
     @NonNull
@@ -43,15 +42,7 @@ public class personAdapter extends RecyclerView.Adapter<personAdapter.ViewHolder
         Person person = personList.get(position);
         holder.firstNameTextView.setText(person.getFirstName());
         holder.lastNameTextView.setText(person.getLastName());
-        holder.cardView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Log.d(TAG, "onClick: " + position);
-                FragmentManager manager = ((FragmentActivity) context).getSupportFragmentManager();
-                AlertDialogFragment alertDialogFragment = new AlertDialogFragment(position);
-                alertDialogFragment.show(manager, "TAG");
-            }
-        });
+//        holder.cardView.setOnClickListener(this);
     }
 
     @Override
@@ -59,7 +50,7 @@ public class personAdapter extends RecyclerView.Adapter<personAdapter.ViewHolder
         return personList.size();
     }
 
-    class ViewHolderPerson extends RecyclerView.ViewHolder {
+    class ViewHolderPerson extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         private final TextView firstNameTextView;
         private final TextView lastNameTextView;
@@ -70,6 +61,12 @@ public class personAdapter extends RecyclerView.Adapter<personAdapter.ViewHolder
             firstNameTextView = itemView.findViewById(R.id.textViewFirstName);
             lastNameTextView = itemView.findViewById(R.id.textViewLastName);
             cardView = itemView.findViewById(R.id.cardView);
+            itemView.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View view) {
+            recyclerViewClickListener.recyclerViewListClicked(view, this.getLayoutPosition());
         }
     }
 }

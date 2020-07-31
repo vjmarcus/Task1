@@ -4,13 +4,14 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.task1.R;
+import com.example.task1.RecyclerViewClickListener;
 import com.example.task1.adapter.personAdapter;
 import com.example.task1.model.Person;
 
@@ -18,20 +19,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class RecyclerFragment extends Fragment implements View.OnClickListener {
+public class RecyclerFragment extends Fragment {
 
     private RecyclerView peopleRecyclerView;
     private RecyclerView.Adapter peopleAdapter;
     private List<Person> personList;
 
     public RecyclerFragment() {
-        // Required empty public constructor
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         View root = inflater.inflate(R.layout.fragment_recycler, container, false);
         generateTestValuesInPeopleList();
         initPeopleRecyclerView(root);
@@ -40,7 +39,14 @@ public class RecyclerFragment extends Fragment implements View.OnClickListener {
 
     private void initPeopleRecyclerView(View root){
         peopleRecyclerView = root.findViewById(R.id.recycler);
-        peopleAdapter = new personAdapter(personList, getContext());
+        peopleAdapter = new personAdapter(personList, new RecyclerViewClickListener() {
+            @Override
+            public void recyclerViewListClicked(View v, int position) {
+                AlertDialogFragment dialog = new AlertDialogFragment(position);
+                FragmentManager manager = getActivity().getSupportFragmentManager();
+                dialog.show(manager, "tag");
+            }
+        });
         peopleRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         peopleRecyclerView.setAdapter(peopleAdapter);
     }
@@ -51,10 +57,5 @@ public class RecyclerFragment extends Fragment implements View.OnClickListener {
             personList.add(new Person(getString(R.string.firstNameTest)
                     + i, getString(R.string.lastNameTest) + i));
         }
-    }
-
-    @Override
-    public void onClick(View view) {
-        Toast.makeText(getContext(), "HELLO", Toast.LENGTH_SHORT).show();
     }
 }
