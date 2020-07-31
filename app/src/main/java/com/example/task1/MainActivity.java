@@ -21,15 +21,14 @@ import com.example.task1.ui.TextWatcherFragment;
 import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity implements
-        NavigationView.OnNavigationItemSelectedListener{
+        NavigationView.OnNavigationItemSelectedListener {
 
-    private Button goToTextWatcherFragment, goToRecyclerFragment;
-    private Toolbar toolbar;
+    private Button goToTextWatcherFragmentButton;
+    private Button goToRecyclerFragmentButton;
     private DrawerLayout drawerLayout;
+    private Toolbar toolbar;
     private ActionBarDrawerToggle actionBarDrawerToggle;
     private NavigationView navigationView;
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,13 +39,13 @@ public class MainActivity extends AppCompatActivity implements
         initDrawer();
         loadDefaultFragment();
 
-        goToTextWatcherFragment.setOnClickListener(new View.OnClickListener() {
+        goToTextWatcherFragmentButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 replaceFragment(new TextWatcherFragment());
             }
         });
-        goToRecyclerFragment.setOnClickListener(new View.OnClickListener() {
+        goToRecyclerFragmentButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 replaceFragment(new RecyclerFragment());
@@ -54,14 +53,14 @@ public class MainActivity extends AppCompatActivity implements
         });
     }
 
-    protected int getLayoutResId(){
+    protected int getLayoutResId() {
         return R.layout.activity_main;
     }
 
     private void loadDefaultFragment() {
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction transaction = fragmentManager.beginTransaction();
-                transaction.add(R.id.container, new DefaultFragment()).commit();
+        transaction.add(R.id.container, new DefaultFragment()).commit();
     }
 
     private void initDrawer() {
@@ -76,19 +75,21 @@ public class MainActivity extends AppCompatActivity implements
         actionBarDrawerToggle.setDrawerIndicatorEnabled(true);
         actionBarDrawerToggle.syncState();
     }
-    private void replaceFragment(Fragment fragment){
+
+    private void replaceFragment(Fragment fragment) {
         FragmentManager manager = getSupportFragmentManager();
         FragmentTransaction transaction = manager.beginTransaction();
         transaction.replace(R.id.container, fragment).commit();
     }
+
     private void initButtons() {
-        goToTextWatcherFragment = findViewById(R.id.buttonGoToTextWatcherFragment);
-        goToRecyclerFragment = findViewById(R.id.buttonGoToRecyclerFragment);
+        goToTextWatcherFragmentButton = findViewById(R.id.buttonGoToTextWatcherFragment);
+        goToRecyclerFragmentButton = findViewById(R.id.buttonGoToRecyclerFragment);
     }
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()){
+        switch (item.getItemId()) {
             case R.id.item1:
                 replaceFragment(new DefaultFragment());
                 break;

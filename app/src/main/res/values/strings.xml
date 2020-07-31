@@ -24,4 +24,8 @@
     <string name="eighth">восьмой</string>
     <string name="ninth">девятый</string>
     <string name="not_define">не определено</string>
+    <string name="firstNameTest">FirstName</string>
+    <string name="lastNameTest">LastName</string>
+    <string name="you_enter">\"Вы ввели: \"</string>
+    <string name="field_is_empty">field is empty</string>
 </resources>

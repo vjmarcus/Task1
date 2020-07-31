@@ -18,8 +18,8 @@ import com.example.task1.R;
 public class TextWatcherFragment extends Fragment {
 
     private EditText editText;
-    private TextView textViewTextWatcher;
-    private Button showToast;
+    private TextView textWatcherTextView;
+    private Button showToastButton;
 
     public TextWatcherFragment() {
         // Required empty public constructor
@@ -35,37 +35,45 @@ public class TextWatcherFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View root = inflater.inflate(R.layout.fragment_first, container, false);
-        editText = root.findViewById(R.id.editText);
-        textViewTextWatcher = root.findViewById(R.id.textViewTextWatcher);
-        showToast = root.findViewById(R.id.buttonShowToast);
+        init(root);
         editText.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                //do nothing
             }
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                //do nothing
             }
 
             @Override
             public void afterTextChanged(Editable editable) {
                 if (editable.length() == 0){
-                    textViewTextWatcher.setVisibility(View.GONE);
+                    textWatcherTextView.setVisibility(View.GONE);
                 } else {
-                    textViewTextWatcher.setText("Вы ввели: " + editText.getText());
+                    StringBuilder builder = new StringBuilder();
+                    builder.append(getString(R.string.you_enter)).append(editText.getText());
+                    textWatcherTextView.setText(builder);
                 }
             }
         });
-        showToast.setOnClickListener(new View.OnClickListener() {
+        showToastButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (editText.getText().length() == 0 || editText.getText().equals("")) {
-                    Toast.makeText(getActivity(), "field is empty", Toast.LENGTH_SHORT).show();
+                if (editText.getText().length() == 0) {
+                    Toast.makeText(getActivity(), R.string.field_is_empty, Toast.LENGTH_SHORT).show();
                 } else {
                     Toast.makeText(getActivity(), editText.getText(), Toast.LENGTH_SHORT).show();
                 }
             }
         });
         return root;
+    }
+
+    private void init(View root) {
+        editText = root.findViewById(R.id.editText);
+        textWatcherTextView = root.findViewById(R.id.textViewTextWatcher);
+        showToastButton = root.findViewById(R.id.buttonShowToast);
     }
 }
