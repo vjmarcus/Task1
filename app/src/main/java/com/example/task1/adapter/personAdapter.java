@@ -42,7 +42,6 @@ public class personAdapter extends RecyclerView.Adapter<personAdapter.ViewHolder
         Person person = personList.get(position);
         holder.firstNameTextView.setText(person.getFirstName());
         holder.lastNameTextView.setText(person.getLastName());
-//        holder.cardView.setOnClickListener(this);
     }
 
     @Override
